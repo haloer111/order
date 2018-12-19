@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aojing.redstore.order.dao.OrderInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.aojing.redstore.order.pojo.OrderInfo" >
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="customer_id" property="customerId" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="valida_start_time" property="validaStartTime" jdbcType="TIMESTAMP" />
+    <result column="valida_end_time" property="validaEndTime" jdbcType="TIMESTAMP" />
+    <result column="permit_start_time" property="permitStartTime" jdbcType="TIMESTAMP" />
+    <result column="permit_end_time" property="permitEndTime" jdbcType="TIMESTAMP" />
+    <result column="is_refund" property="isRefund" jdbcType="BIT" />
+    <result column="rule" property="rule" jdbcType="VARCHAR" />
+    <result column="refund_rule" property="refundRule" jdbcType="INTEGER" />
+    <result column="order_desc" property="orderDesc" jdbcType="VARCHAR" />
+    <result column="order_remark" property="orderRemark" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="express_no" property="expressNo" jdbcType="VARCHAR" />
+    <result column="delivery_time" property="deliveryTime" jdbcType="TIMESTAMP" />
+    <result column="receive_time" property="receiveTime" jdbcType="TIMESTAMP" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="dues" property="dues" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.aojing.redstore.order.pojo.OrderInfo" >
+    insert into order_info_tb (order_id, customer_id, type, 
+      status, valida_start_time, valida_end_time, 
+      permit_start_time, permit_end_time, is_refund, 
+      rule, refund_rule, order_desc, 
+      order_remark, address, express_no, 
+      delivery_time, receive_time, total_price, 
+      dues, create_time, update_time
+      )
+    values (#{orderId,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{status,jdbcType=VARCHAR}, #{validaStartTime,jdbcType=TIMESTAMP}, #{validaEndTime,jdbcType=TIMESTAMP}, 
+      #{permitStartTime,jdbcType=TIMESTAMP}, #{permitEndTime,jdbcType=TIMESTAMP}, #{isRefund,jdbcType=BIT}, 
+      #{rule,jdbcType=VARCHAR}, #{refundRule,jdbcType=INTEGER}, #{orderDesc,jdbcType=VARCHAR}, 
+      #{orderRemark,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{expressNo,jdbcType=VARCHAR}, 
+      #{deliveryTime,jdbcType=TIMESTAMP}, #{receiveTime,jdbcType=TIMESTAMP}, #{totalPrice,jdbcType=DECIMAL}, 
+      #{dues,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aojing.redstore.order.pojo.OrderInfo" >
+    insert into order_info_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="validaStartTime != null" >
+        valida_start_time,
+      </if>
+      <if test="validaEndTime != null" >
+        valida_end_time,
+      </if>
+      <if test="permitStartTime != null" >
+        permit_start_time,
+      </if>
+      <if test="permitEndTime != null" >
+        permit_end_time,
+      </if>
+      <if test="isRefund != null" >
+        is_refund,
+      </if>
+      <if test="rule != null" >
+        rule,
+      </if>
+      <if test="refundRule != null" >
+        refund_rule,
+      </if>
+      <if test="orderDesc != null" >
+        order_desc,
+      </if>
+      <if test="orderRemark != null" >
+        order_remark,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="expressNo != null" >
+        express_no,
+      </if>
+      <if test="deliveryTime != null" >
+        delivery_time,
+      </if>
+      <if test="receiveTime != null" >
+        receive_time,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="dues != null" >
+        dues,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="validaStartTime != null" >
+        #{validaStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validaEndTime != null" >
+        #{validaEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="permitStartTime != null" >
+        #{permitStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="permitEndTime != null" >
+        #{permitEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isRefund != null" >
+        #{isRefund,jdbcType=BIT},
+      </if>
+      <if test="rule != null" >
+        #{rule,jdbcType=VARCHAR},
+      </if>
+      <if test="refundRule != null" >
+        #{refundRule,jdbcType=INTEGER},
+      </if>
+      <if test="orderDesc != null" >
+        #{orderDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="orderRemark != null" >
+        #{orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNo != null" >
+        #{expressNo,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryTime != null" >
+        #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiveTime != null" >
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="dues != null" >
+        #{dues,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

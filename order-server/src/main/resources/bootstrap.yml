@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/redstoredb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: root
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT1FROMDUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    filters: stat
+    logSlowSql: true
+  application:
+    name: order
+server:
+  port: 8086
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+#mybatis:
+  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.aojing.redstore.order.pojo  # 注意：对应实体类的路径
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8901/eureka/
