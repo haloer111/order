@@ -22,6 +22,7 @@ import com.aojing.redstore.order.vo.OrderVo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -43,6 +44,7 @@ public class IOrderMServiceImpl implements IOrderMService {
     @Autowired
     private OrderInfoMapper orderInfoMapper;
 
+    @Transactional
     public Result<OrderVo> create(OrderVo orderVo) {
         BigDecimal totalPrice = new BigDecimal("0");
         int totalCount = 0;
@@ -103,7 +105,7 @@ public class IOrderMServiceImpl implements IOrderMService {
 
         // 6.生成订单
         OrderInfo orderInfo = new OrderInfo();
-        orderInfo.setOrderId(orderId);
+        orderInfo.setId(orderId);
         orderInfo.setCustomerId(orderVo.getUserId());
         orderInfo.setType(OrderTypeEnum.APP.getCode());
         orderInfo.setStatus(OrderStatusEnum.PREORDER.getCode().toString());

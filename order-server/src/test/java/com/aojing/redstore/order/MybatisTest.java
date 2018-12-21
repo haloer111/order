@@ -3,6 +3,7 @@ package com.aojing.redstore.order;
 import com.aojing.redstore.order.dao.OrderDetailMapper;
 import com.aojing.redstore.order.pojo.OrderDetail;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,9 +21,9 @@ public class MybatisTest extends OrderServerApplicationTests{
     @Test
     public void test(){
         QueryWrapper<OrderDetail> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("order_id",21312312);
-        queryWrapper.eq("unit",5);
-        List<OrderDetail> orderDetailMappers = orderDetailMapper.selectList(queryWrapper);
-        orderDetailMappers.forEach(System.out::println);
+        queryWrapper.eq("id","1330e625f5514b4f9677e18d9f0b7aac");
+       // queryWrapper.eq("unit",5);
+        OrderDetail orderDetailMappers = orderDetailMapper.selectOne(queryWrapper);
+        Assert.assertNotNull(orderDetailMappers);
     }
 }

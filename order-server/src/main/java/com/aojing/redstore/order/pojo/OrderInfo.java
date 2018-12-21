@@ -7,7 +7,7 @@ import java.util.Date;
 
 @TableName("order_info_tb")
 public class OrderInfo {
-    private String orderId;
+    private String id;
 
     private String customerId;
 
@@ -49,12 +49,12 @@ public class OrderInfo {
 
     private Date updateTime;
 
-    public String getOrderId() {
-        return orderId;
+    public String getId() {
+        return id;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId == null ? null : orderId.trim();
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getCustomerId() {
