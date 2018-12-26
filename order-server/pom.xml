@@ -55,10 +55,10 @@
 
 
         <!--goods-client-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.aojing.redstore</groupId>
             <artifactId>goods-client</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.codehaus.jackson</groupId>

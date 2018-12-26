@@ -27,8 +27,14 @@ ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 60000
 #mybatis:
-  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
-  type-aliases-package: com.aojing.redstore.order.pojo  # 注意：对应实体类的路径
+#  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+#  type-aliases-package: com.aojing.redstore.order.pojo  # 注意：对应实体类的路径
+
+mybatis-plus:
+  # config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath*:mapper/*.xml
+  global-config:
+    refresh: true
 
 eureka:
   client:

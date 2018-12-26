@@ -280,4 +280,17 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+
+
+  <!--manual-->
+  <select id="selectByStatus" resultType="com.aojing.redstore.order.vo.OrderMiniVo" >
+    select id,order_remark,valida_start_time,valida_end_time, '' as count ,total_price,status
+    from order_info_tb
+    where status in
+<foreach collection="statusList" separator="," open="(" close=")" item="status">
+  #{status}
+</foreach>
+  </select>
+
 </mapper>

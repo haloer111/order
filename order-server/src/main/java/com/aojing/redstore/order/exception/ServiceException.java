@@ -5,17 +5,17 @@ import lombok.Getter;
 
 
 @Getter
-public class RedStoreException extends RuntimeException{
+public class ServiceException extends RuntimeException{
 
     private Integer code;
 
-    public RedStoreException(OrderExceptionEnum resultEnum) {
+    public ServiceException(OrderExceptionEnum resultEnum) {
         super(resultEnum.getMessage());
 
         this.code = resultEnum.getCode();
     }
 
-    public RedStoreException(Integer code, String message) {
+    public ServiceException(Integer code, String message) {
         super(message);
         this.code = code;
     }

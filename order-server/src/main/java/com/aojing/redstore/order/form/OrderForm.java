@@ -4,7 +4,6 @@ package com.aojing.redstore.order.form;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
-import java.security.KeyStore;
 
 /**
  * @author gexiao

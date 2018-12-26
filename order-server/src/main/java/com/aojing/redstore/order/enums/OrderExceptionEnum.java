@@ -18,6 +18,7 @@ import lombok.Getter;
 public enum OrderExceptionEnum {
 
     CREATE_ORDER_FAIL(1103001, "创建订单失败"),
+    UPDATE_ORDERDETAIL_FAIL(1103003, "修改订单详情失败"),
 
 
 

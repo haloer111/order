@@ -18,6 +18,7 @@ public enum  OrderStatusEnum {
     REFUNDED(60,"已退款"),
     USED(70,"订单已被使用"),
     DELETED(80,"订单已删除"),
+    UNCOMMENT(90,"订单未评论"),
 
 
     ;
